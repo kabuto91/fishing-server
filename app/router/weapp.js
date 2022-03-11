@@ -11,4 +11,8 @@ module.exports = app => {
   router.get('/weapp/shop/list/class', controller.shop.getShopListByClass)
   router.get('/weapp/shop/list/search', controller.shop.getSearchShopList)
   router.get('/weapp/shop/list/sale', controller.shop.getShopListBySales)
+  router.get('/weapp/shop/list/discount', controller.shop.getShopListByDiscount)
+
+  //用户
+  router.post('/weapp/user/login', controller.user.loginOrRegister)
 }

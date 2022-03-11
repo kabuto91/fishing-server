@@ -8,6 +8,7 @@ class ShopService extends Service {
    * @param {Object} params - 条件
   */
   async getShopListByClass(params = {}) {
+    params.is_putaway = true
     return await this.ctx.model.Shop.find(params)
   }
 
@@ -20,7 +21,7 @@ class ShopService extends Service {
     params.pageIndex = Number.parseInt(params?.pageIndex ?? 1)
     params.pageSize = Number.parseInt(params?.pageSize ?? 10)
     const { shop_name, pageIndex, pageSize } = params
-    return await this.ctx.model.Shop.find({shop_name: shop_name}).limit(pageSize).skip((pageIndex - 1) * pageSize)
+    return await this.ctx.model.Shop.find({shop_name: shop_name, is_putaway: true}).limit(pageSize).skip((pageIndex - 1) * pageSize)
   }
 
   /**
@@ -31,7 +32,14 @@ class ShopService extends Service {
     params.pageIndex = Number.parseInt(params?.pageIndex ?? 1)
     params.pageSize = Number.parseInt(params?.pageSize ?? 10)
     const { pageIndex, pageSize } = params
-    return await this.ctx.model.Shop.find().sort({sales_number: -1}).limit(pageSize).skip((pageIndex - 1) * pageSize)
+    return await this.ctx.model.Shop.find({is_putaway: true}).sort({sales_number: -1}).limit(pageSize).skip((pageIndex - 1) * pageSize)
+  }
+
+  /**
+   * 根据优惠获取商品列表
+  */
+  async getShopListByDiscount() {
+    return await this.ctx.model.Shop.find({is_putaway: true, is_discount: true}).sort({sales_number: -1}).limit(10)
   }
 }
 

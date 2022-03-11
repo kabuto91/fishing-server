@@ -24,6 +24,10 @@ module.exports = app => {
     original_price: {
       type: Number,
     },
+    is_discount: {
+      type: Boolean,
+      default: false,
+    },
     sales_number: {
       type: Number,
       default: 0,
