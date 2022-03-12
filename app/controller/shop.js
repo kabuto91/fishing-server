@@ -35,6 +35,13 @@ class ShopController extends Controller {
     let result = await this.ctx.service.shop.getShopListByDiscount()
     this.success(result)
   }
+
+  // 获取商品详情
+  async getShopDetail() {
+    let params = this.ctx.query
+    let result = await this.ctx.service.shop.getShopDetail(params)
+    this.success(result)
+  }
 }
 
 module.exports = ShopController

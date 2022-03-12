@@ -36,10 +36,6 @@ module.exports = app => {
       type: Array,
       default: [],
     },
-    shopping_cart: {
-      type: Array,
-      default: [],
-    }
   });
 
   return mongoose.model('User', UserSchema, 'user')

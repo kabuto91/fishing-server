@@ -41,6 +41,14 @@ class ShopService extends Service {
   async getShopListByDiscount() {
     return await this.ctx.model.Shop.find({is_putaway: true, is_discount: true}).sort({sales_number: -1}).limit(10)
   }
+
+  /**
+   * 获取商品详情
+   * @param {Object} params - 条件
+  */
+  async getShopDetail(params = {}) {
+    return await this.ctx.model.Shop.findOne({shop_id: params.shop_id})
+  }
 }
 
 module.exports = ShopService
