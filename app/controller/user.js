@@ -27,13 +27,20 @@ class UserController extends Controller {
   async addShoppingCart() {
     let params = this.ctx.request.body
     let result = await this.ctx.service.user.addShoppingCart(params)
-    this.success(result)
+    this.success({message: '新增购物车成功'})
   }
 
   // 购物车列表
   async getShoppingCartList() {
     let params = this.ctx.request.body
     let result = await this.ctx.service.user.getShoppingCartList(params)
+    this.success(result)
+  }
+
+  // 编辑购物车
+  async controlShoppingCart() {
+    let params = this.ctx.request.body
+    let result = await this.ctx.service.user.controlShoppingCart(params)
     this.success(result)
   }
 }

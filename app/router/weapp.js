@@ -19,4 +19,5 @@ module.exports = app => {
   router.post('/weapp/user/info', controller.user.getUserInfo)
   router.post('/weapp/shopping/add', controller.user.addShoppingCart)
   router.post('/weapp/shopping/list', controller.user.getShoppingCartList)
+  router.post('/weapp/shopping/edit', controller.user.controlShoppingCart)
 }

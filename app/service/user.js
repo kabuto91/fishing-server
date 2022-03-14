@@ -68,6 +68,9 @@ class UserService extends Service {
    * @param {Object} params - 条件
   */
   async addShoppingCart(params = {}) {
+    let findParams = {wx_openId: params.wx_openId, shop_id: params.shop_id}
+    let findResult = await this.ctx.model.ShoppingCart.findOne(findParams)
+    if(findResult) return await this.ctx.model.ShoppingCart.updateOne(findParams, {$inc: {"count": 1}})
     return await this.ctx.model.ShoppingCart.create(params)
   }
 
@@ -90,6 +93,30 @@ class UserService extends Service {
         }
       }
     ])
+  }
+
+  /**
+   * 操作购物车
+   * @param {Object} params - 条件
+  */
+  async controlShoppingCart(params = {}) {
+    params.shoppings.forEach(async (item) => {
+      let index = params.deleteIdList.findIndex(key => key === item.shop_id)
+      if(index >= 0) params.deleteIdList.splice(index, 1)
+      await this.ctx.model.ShoppingCart.updateOne({wx_openId: params.wx_openId, shop_id: item.shop_id}, {count: item.count})
+    })
+    if(params.deleteIdList.length > 0) await this.deleteShoppingCartNoHave(params)
+    return await this.ctx.model.ShoppingCart.find({wx_openId: params.wx_openId})
+  }
+
+  /**
+   * 删除集合中多余购物车的商品
+   * @param {Object} params - 删除条件
+  */
+  async deleteShoppingCartNoHave(params = {}) {
+    params.deleteIdList.forEach(async (item) => {
+      await this.ctx.model.ShoppingCart.remove({wx_openId: params.wx_openId, shop_id: item})
+    })
   }
 }
 
