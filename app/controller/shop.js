@@ -9,6 +9,7 @@ class ShopController extends Controller {
     const { ctx } = this
     let params = ctx.query
     let result = await ctx.service.shop.getShopListByClass(params)
+    await this.addShopImgHead(result)
     this.success(result)
   }
 
@@ -16,8 +17,8 @@ class ShopController extends Controller {
   async getSearchShopList() {
     const { ctx } = this
     let params = ctx.query
-    console.log('params', params)
     let result = await ctx.service.shop.getSearchShopList(params)
+    await this.addShopImgHead(result)
     this.success(result)
   }
 
@@ -27,12 +28,14 @@ class ShopController extends Controller {
     let params = ctx.query
     console.log('params', params)
     let result = await ctx.service.shop.getShopListBySales(params)
+    await this.addShopImgHead(result)
     this.success(result)
   }
 
   // 根据优惠获取商品列表
   async getShopListByDiscount() {
     let result = await this.ctx.service.shop.getShopListByDiscount()
+    await this.addShopImgHead(result)
     this.success(result)
   }
 
@@ -40,6 +43,7 @@ class ShopController extends Controller {
   async getShopDetail() {
     let params = this.ctx.query
     let result = await this.ctx.service.shop.getShopDetail(params)
+    await this.addShopImgHead(result)
     this.success(result)
   }
 }

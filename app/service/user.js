@@ -9,7 +9,7 @@ class UserService extends Service {
   */
   async userLogin(params = {}) {
     console.log('params', params)
-    return await this.ctx.model.User.findOne({wx_openId: params?.wx_openId}, {wx_openId: 1})
+    return await this.ctx.model.User.findOneAndUpdate({wx_openId: params?.wx_openId}, {$set: {last_login_time: new Date()}})
     // .aggregate([
     //   {
     //     $match: {wx_openId: params?.wx_openId},
@@ -49,7 +49,7 @@ class UserService extends Service {
   async getUserInfo(params = {}) {
     return await this.ctx.model.User.aggregate([
       {
-        $match: {wx_openId: params.wx_openI}
+        $match: {wx_openId: params.wx_openId}
       }, {
         $project: {wx_openId: 0, shopping_cart: 0}
       }, {

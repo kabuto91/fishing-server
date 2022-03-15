@@ -2,6 +2,8 @@
 
 'use strict';
 
+const path = require('path')
+
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -36,6 +38,19 @@ module.exports = appInfo => {
     csrf: {
       enable: false
     }
+  }
+
+  config.static = {
+    // 默认目录，静态化访问前缀
+    prefix: '/static',
+    // 静态文件存储目录
+    dir: path.join(appInfo.baseDir, 'app/public'),
+    // 如果当前访问的静态资源没有缓存，则缓存静态文件，和'preload'配合使用
+    dynamic:true,
+    preload: false,
+    // 缓存最长期限
+    maxAge: 31536000,
+    buffer: true
   }
 
   // add your user config here

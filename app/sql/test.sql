@@ -11,7 +11,7 @@
  Target Server Version : 40404
  File Encoding         : 65001
 
- Date: 14/03/2022 17:28:29
+ Date: 15/03/2022 17:27:56
 */
 
 
@@ -251,6 +251,198 @@ db.getCollection("class").insert([ {
 } ]);
 
 // ----------------------------
+// Collection structure for order
+// ----------------------------
+db.getCollection("order").drop();
+db.createCollection("order");
+db.getCollection("order").createIndex({
+    "order_number": NumberInt("1")
+}, {
+    name: "order_number_1",
+    background: true,
+    unique: true
+});
+
+// ----------------------------
+// Documents of order
+// ----------------------------
+db.getCollection("order").insert([ {
+    _id: ObjectId("622feeeeef0c992920e309ee"),
+    "order_detail": [
+        {
+            "shop_id": NumberInt("46"),
+            "shop_name": "属广品据",
+            count: NumberInt("74"),
+            price: NumberInt("2"),
+            "shop_img": "http://dummyimage.com/400x400"
+        },
+        {
+            "shop_id": NumberInt("13"),
+            "shop_name": "标品商运研",
+            count: NumberInt("60"),
+            price: NumberInt("75"),
+            "shop_img": "http://dummyimage.com/400x400"
+        },
+        {
+            "shop_id": NumberInt("5"),
+            "shop_name": "回格分用各该想",
+            count: NumberInt("39"),
+            price: NumberInt("34"),
+            "shop_img": "http://dummyimage.com/400x400"
+        }
+    ],
+    "order_time": ISODate("2022-03-15T01:42:02.626Z"),
+    "order_state": "waitPay",
+    nickname: "宋桂英",
+    address: "陕西省克孜勒苏柯尔克孜自治州静安区",
+    phone: 18184966341,
+    price: NumberInt("5"),
+    "order_number": "ER000000000001",
+    __v: NumberInt("0"),
+    "wx_openId": "oiWxj5aHR7MhMiujFnJX9QY6pjeU"
+} ]);
+db.getCollection("order").insert([ {
+    _id: ObjectId("622ff0651c01b61bc06384de"),
+    "order_detail": [
+        {
+            "shop_id": NumberInt("46"),
+            "shop_name": "属广品据",
+            count: NumberInt("74"),
+            price: NumberInt("2"),
+            "shop_img": "http://dummyimage.com/400x400"
+        },
+        {
+            "shop_id": NumberInt("13"),
+            "shop_name": "标品商运研",
+            count: NumberInt("60"),
+            price: NumberInt("75"),
+            "shop_img": "http://dummyimage.com/400x400"
+        },
+        {
+            "shop_id": NumberInt("5"),
+            "shop_name": "回格分用各该想",
+            count: NumberInt("39"),
+            price: NumberInt("34"),
+            "shop_img": "http://dummyimage.com/400x400"
+        }
+    ],
+    "order_time": ISODate("2022-03-15T01:48:16.967Z"),
+    "order_state": "waitPay",
+    nickname: "宋桂英",
+    address: "陕西省克孜勒苏柯尔克孜自治州静安区",
+    phone: 18184966341,
+    price: NumberInt("5"),
+    "order_number": "ER000000000002",
+    __v: NumberInt("0"),
+    "wx_openId": "oiWxj5aHR7MhMiujFnJX9QY6pjeU"
+} ]);
+db.getCollection("order").insert([ {
+    _id: ObjectId("622ff58ce3cf061e34eceb48"),
+    "order_detail": [
+        {
+            "shop_id": NumberInt("46"),
+            "shop_name": "属广品据",
+            count: NumberInt("74"),
+            price: NumberInt("2"),
+            "shop_img": "http://dummyimage.com/400x400"
+        },
+        {
+            "shop_id": NumberInt("13"),
+            "shop_name": "标品商运研",
+            count: NumberInt("60"),
+            price: NumberInt("75"),
+            "shop_img": "http://dummyimage.com/400x400"
+        },
+        {
+            "shop_id": NumberInt("5"),
+            "shop_name": "回格分用各该想",
+            count: NumberInt("39"),
+            price: NumberInt("34"),
+            "shop_img": "http://dummyimage.com/400x400"
+        }
+    ],
+    "order_time": ISODate("2022-03-15T02:09:12.38Z"),
+    "order_state": "waitPay",
+    nickname: "宋桂英",
+    address: "陕西省克孜勒苏柯尔克孜自治州静安区",
+    phone: 18184966341,
+    price: NumberInt("5"),
+    "order_number": "ER000000000003",
+    __v: NumberInt("0"),
+    "wx_openId": "oiWxj5aHR7MhMiujFnJX9QY6pjeU"
+} ]);
+db.getCollection("order").insert([ {
+    _id: ObjectId("622ffb20360add3188030369"),
+    "order_detail": [
+        {
+            "shop_id": NumberInt("47"),
+            "shop_name": "年张称",
+            count: NumberInt("39"),
+            price: NumberInt("48"),
+            "shop_img": "http://dummyimage.com/400x400"
+        }
+    ],
+    "order_time": ISODate("2022-03-15T02:34:02.924Z"),
+    "order_state": "waitPay",
+    nickname: "吕洋",
+    address: "河南省南通市威宁彝族回族苗族自治县",
+    phone: 18120594223,
+    price: NumberInt("74"),
+    "order_number": "ER000000000004",
+    __v: NumberInt("0"),
+    "wx_openId": "oiWxj5aHR7MhMiujFnJX9QY6pjeU"
+} ]);
+db.getCollection("order").insert([ {
+    _id: ObjectId("622ffd35beec5124ac80328d"),
+    "order_detail": [
+        {
+            "shop_id": NumberInt("41"),
+            "shop_name": "十线数感收话",
+            count: NumberInt("28"),
+            price: NumberInt("98"),
+            "shop_img": "http://dummyimage.com/400x400"
+        },
+        {
+            "shop_id": NumberInt("47"),
+            "shop_name": "影红器容",
+            count: NumberInt("90"),
+            price: NumberInt("45"),
+            "shop_img": "http://dummyimage.com/400x400"
+        },
+        {
+            "shop_id": NumberInt("48"),
+            "shop_name": "铁机型准热",
+            count: NumberInt("40"),
+            price: NumberInt("77"),
+            "shop_img": "http://dummyimage.com/400x400"
+        },
+        {
+            "shop_id": NumberInt("97"),
+            "shop_name": "且选米示",
+            count: NumberInt("47"),
+            price: NumberInt("3"),
+            "shop_img": "http://dummyimage.com/400x400"
+        },
+        {
+            "shop_id": NumberInt("44"),
+            "shop_name": "三类热场无步权",
+            count: NumberInt("60"),
+            price: NumberInt("12"),
+            "shop_img": "http://dummyimage.com/400x400"
+        }
+    ],
+    "order_time": ISODate("2022-03-15T02:42:11.866Z"),
+    "order_state": "waitSend",
+    nickname: "雷静",
+    address: "河南省果洛藏族自治州港南区",
+    phone: 18183057577,
+    price: NumberInt("17"),
+    "wx_openId": "oiWxj5aHR7MhMiujFnJX9QY6pjeU",
+    "order_number": "ER000000000005",
+    __v: NumberInt("0")
+} ]);
+
+// ----------------------------
 // Collection structure for power
 // ----------------------------
 db.getCollection("power").drop();
@@ -263,49 +455,49 @@ db.getCollection("power").insert([ {
     _id: ObjectId("6219db4bde53ac0d28f9e5d7"),
     "power_type": "basic",
     "power_name": "test",
-    "power_img": "123456",
+    "power_img": "/static/images/controlIcon/about.png",
     __v: NumberInt("0")
 } ]);
 db.getCollection("power").insert([ {
     _id: ObjectId("6219db73f926584ed8485747"),
     "power_type": "basic",
     "power_name": "收货地址",
-    "power_img": "123456",
+    "power_img": "/static/images/controlIcon/about.png",
     __v: NumberInt("0")
 } ]);
 db.getCollection("power").insert([ {
     _id: ObjectId("6219dcb646634d47482453dc"),
     "power_type": "basic",
     "power_name": "关于我们",
-    "power_img": "123456",
+    "power_img": "/static/images/controlIcon/about.png",
     __v: NumberInt("0")
 } ]);
 db.getCollection("power").insert([ {
     _id: ObjectId("6219dcd5c26c565080fed91a"),
     "power_type": "basic",
     "power_name": "用户信息",
-    "power_img": "123456",
+    "power_img": "/static/images/controlIcon/about.png",
     __v: NumberInt("0")
 } ]);
 db.getCollection("power").insert([ {
     _id: ObjectId("6219dcf7e0b86b3f3843af4d"),
     "power_type": "basic",
     "power_name": "设置",
-    "power_img": "123456",
+    "power_img": "/static/images/controlIcon/about.png",
     __v: NumberInt("0")
 } ]);
 db.getCollection("power").insert([ {
     _id: ObjectId("6219dd032cd2b44bd05c9cf6"),
     "power_type": "basic",
     "power_name": "加入群聊",
-    "power_img": "123456",
+    "power_img": "/static/images/controlIcon/about.png",
     __v: NumberInt("0")
 } ]);
 db.getCollection("power").insert([ {
     _id: ObjectId("6219dd0eb816aa464874e03e"),
     "power_type": "basic",
     "power_name": "联系客服",
-    "power_img": "123456",
+    "power_img": "/static/images/controlIcon/about.png",
     __v: NumberInt("0")
 } ]);
 
@@ -328,8 +520,14 @@ db.getCollection("shop").createIndex({
 db.getCollection("shop").insert([ {
     _id: ObjectId("621db0cdc335dd0630c6ca22"),
     "shop_id": NumberInt("0"),
-    "shop_twitter": [ ],
-    "detail_imgs": [ ],
+    "shop_twitter": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "detail_imgs": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
     "discount_type": [ ],
     "is_putaway": true,
     "shop_name": "商品1",
@@ -345,8 +543,14 @@ db.getCollection("shop").insert([ {
 db.getCollection("shop").insert([ {
     _id: ObjectId("621db2fefcef79537c22f81f"),
     "shop_id": NumberInt("1"),
-    "shop_twitter": [ ],
-    "detail_imgs": [ ],
+    "shop_twitter": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "detail_imgs": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
     "discount_type": [ ],
     "is_putaway": true,
     "shop_name": "商品1",
@@ -362,8 +566,14 @@ db.getCollection("shop").insert([ {
 db.getCollection("shop").insert([ {
     _id: ObjectId("62298f145d05dd5998e5b21f"),
     "shop_id": NumberInt("2"),
-    "shop_twitter": [ ],
-    "detail_imgs": [ ],
+    "shop_twitter": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "detail_imgs": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
     "discount_type": [ ],
     "is_putaway": false,
     "shop_name": "商品1123",
@@ -380,8 +590,14 @@ db.getCollection("shop").insert([ {
     _id: ObjectId("62298f9ee497a7535ce5a802"),
     "shop_id": NumberInt("3"),
     "sales_number": NumberInt("0"),
-    "shop_twitter": [ ],
-    "detail_imgs": [ ],
+    "shop_twitter": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "detail_imgs": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
     "discount_type": [ ],
     "is_putaway": true,
     "shop_name": "商品1",
@@ -397,8 +613,14 @@ db.getCollection("shop").insert([ {
     _id: ObjectId("622998e747d5235258b36158"),
     "shop_id": NumberInt("4"),
     "sales_number": NumberInt("10"),
-    "shop_twitter": [ ],
-    "detail_imgs": [ ],
+    "shop_twitter": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "detail_imgs": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
     "discount_type": [ ],
     "is_putaway": true,
     "shop_name": "商品2",
@@ -415,8 +637,14 @@ db.getCollection("shop").insert([ {
     "shop_id": NumberInt("5"),
     "is_discount": false,
     "sales_number": NumberInt("0"),
-    "shop_twitter": [ ],
-    "detail_imgs": [ ],
+    "shop_twitter": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "detail_imgs": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
     "discount_type": [ ],
     "is_putaway": true,
     "shop_name": "商品2",
@@ -478,13 +706,13 @@ db.createCollection("store");
 db.getCollection("store").insert([ {
     _id: ObjectId("62295e7e76cfdc12f45c1dce"),
     "swiper_imgs": [
-        "/static/images/controlIcon/1646276018869.jpg",
-        "/static/images/controlIcon/1646276018869.jpg"
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
     ],
     "create_time": ISODate("2022-03-10T01:56:22.284Z"),
     "store_name": "测试店铺",
     "store_description": "店铺描述",
-    "store_img": "/static/images/controlIcon/1646276018869.jpg",
+    "store_img": "/static/images/controlIcon/about.png",
     "store_address": "测试地址",
     notice: "店铺公告栏",
     __v: NumberInt("0")
@@ -578,7 +806,7 @@ db.getCollection("user").insert([ {
 db.getCollection("user").insert([ {
     _id: ObjectId("622bf6dac1f9c12bf860a5c3"),
     "create_time": ISODate("2022-03-12T01:26:18.167Z"),
-    "last_login_time": ISODate("2022-03-12T01:26:18.167Z"),
+    "last_login_time": ISODate("2022-03-15T06:49:38.867Z"),
     "power_list": [
         "basic"
     ],
@@ -586,7 +814,7 @@ db.getCollection("user").insert([ {
     "shopping_cart": [ ],
     "wx_openId": "oiWxj5aHR7MhMiujFnJX9QY6pjeU",
     nickname: "蔡洋",
-    "avatar_img": "http://dummyimage.com/100x100",
+    "avatar_img": "/static/images/controlIcon/about.png",
     __v: NumberInt("0")
 } ]);
 

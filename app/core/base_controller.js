@@ -29,6 +29,38 @@ class BaseController extends Controller {
     return JSON.parse(result.data)
   }
 
+  // 给返回的图片添加头
+  async addShopImgHead(result) {
+    let head = this.ctx.request.header.host
+    if(Array.isArray(result)) {
+      result.forEach(item => {
+        item.shop_twitter.forEach((item1, index) => {
+          item.shop_twitter[index] = item1 ? `${head}${item1}` : ''
+        })
+        item.detail_imgs.forEach((item1, index) => {
+          item.detail_imgs[index] = item1 ? `${head}${item1}` : ''
+        })
+      })
+    } else {
+      result.shop_twitter.forEach((item1, index) => {
+        result.shop_twitter[index] = item1 ? `${head}${item1}` : ''
+      })
+      result.detail_imgs.forEach((item1, index) => {
+        result.detail_imgs[index] = item1 ? `${head}${item1}` : ''
+      })
+    }
+  }
+
+  // 给用户的图片添加头
+  async addUserImgHead(result) {
+    let head = this.ctx.request.header.host
+    console.log(result.powers)
+    result.avatar_img = result.avatar_img?`${head}${result.avatar_img}`:''
+    result.powers.forEach(item => {
+      item.power_img = item.power_img?`${head}${item.power_img}`: ''
+    })
+  }
+
 }
 
 module.exports = BaseController

@@ -18,8 +18,10 @@ class UserController extends Controller {
   // 获取用户信息
   async getUserInfo() {
     let params = this.ctx.request.body
+    if(!params.wx_openId) return this.fail(500, 'wx_openId不能为空哦！')
     let result = await this.ctx.service.user.getUserInfo(params)
     console.log('result', result)
+    await this.addUserImgHead(result[0])
     this.success(result[0])
   }
 
@@ -34,6 +36,12 @@ class UserController extends Controller {
   async getShoppingCartList() {
     let params = this.ctx.request.body
     let result = await this.ctx.service.user.getShoppingCartList(params)
+    let head = this.ctx.request.header.host
+    console.log(result[0].shoppings[0].shop_twitter[0])
+    result.forEach((item, index) => {
+      
+      item.shoppings.length > 0 && (result[index].shoppings[0].shop_twitter[0] = `${head}${result[0].shoppings[0].shop_twitter[0]}`)
+    })
     this.success(result)
   }
 
