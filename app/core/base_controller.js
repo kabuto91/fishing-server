@@ -31,7 +31,7 @@ class BaseController extends Controller {
 
   // 给返回的图片添加头
   async addShopImgHead(result) {
-    let head = this.ctx.request.header.host
+    let head = `http://${this.ctx.request.header.host}` 
     if(Array.isArray(result)) {
       result.forEach(item => {
         item.shop_twitter.forEach((item1, index) => {
@@ -53,11 +53,10 @@ class BaseController extends Controller {
 
   // 给用户的图片添加头
   async addUserImgHead(result) {
-    let head = this.ctx.request.header.host
+    let head = `http://${this.ctx.request.header.host}` 
     console.log(result.powers)
-    result.avatar_img = result.avatar_img?`${head}${result.avatar_img}`:''
     result.powers.forEach(item => {
-      item.power_img = item.power_img?`${head}${item.power_img}`: ''
+      item.image = item.image?`${head}${item.image}`: ''
     })
   }
 

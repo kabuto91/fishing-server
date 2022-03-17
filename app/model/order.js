@@ -3,6 +3,7 @@
 module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
+  const { dateFormat } = app
 
   const OrderSchema = new Schema({
     order_number: {
@@ -27,8 +28,8 @@ module.exports = app => {
       type: Array,
     },
     order_time: {
-      type: Date,
-      default: new Date(),
+      type: String,
+      default: dateFormat('YYYY-mm-dd HH:MM:SS', new Date()) ,
     },
     price: {
       type: Number,

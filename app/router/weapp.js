@@ -20,6 +20,7 @@ module.exports = app => {
   router.post('/weapp/shopping/add', controller.user.addShoppingCart)
   router.post('/weapp/shopping/list', controller.user.getShoppingCartList)
   router.post('/weapp/shopping/edit', controller.user.controlShoppingCart)
+  router.post('/weapp/address/add', controller.user.addUserAddress)
 
   // 订单
   router.post('/weapp/order/add', controller.order.addOrder)

@@ -3,6 +3,7 @@
 module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
+  const { dateFormat } = app
 
   const UserSchema = new Schema({
     wx_openId: {
@@ -21,12 +22,12 @@ module.exports = app => {
       type: String,
     },
     create_time: {
-      type: Date,
-      default: new Date(),
+      type: String,
+      default: dateFormat('YYYY-mm-dd HH:MM:SS', new Date()) ,
     },
     last_login_time: {
-      type: Date,
-      default: new Date(),
+      type: String,
+      default: dateFormat('YYYY-mm-dd HH:MM:SS', new Date()) ,
     },
     power_list: {
       type: Array,

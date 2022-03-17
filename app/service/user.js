@@ -9,7 +9,7 @@ class UserService extends Service {
   */
   async userLogin(params = {}) {
     console.log('params', params)
-    return await this.ctx.model.User.findOneAndUpdate({wx_openId: params?.wx_openId}, {$set: {last_login_time: new Date()}})
+    return await this.ctx.model.User.findOneAndUpdate({wx_openId: params?.wx_openId}, {$set: {last_login_time: this.app.dateFormat('YYYY-mm-dd HH:MM:SS', new Date()) }})
     // .aggregate([
     //   {
     //     $match: {wx_openId: params?.wx_openId},
@@ -117,6 +117,15 @@ class UserService extends Service {
     params.deleteIdList.forEach(async (item) => {
       await this.ctx.model.ShoppingCart.remove({wx_openId: params.wx_openId, shop_id: item})
     })
+  }
+
+  /**
+   * 添加用户地址
+   * @param {Object} params - 条件
+  */
+  async addUserAddress(params = {}) {
+    params.is_default === !!(params.addressDetail.id === 0)
+    return await this.ctx.model.User.updateOne({wx_openId: params.wx_openId}, {$push: {address: params.addressDetail}})
   }
 }
 

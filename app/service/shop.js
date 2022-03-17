@@ -8,6 +8,7 @@ class ShopService extends Service {
    * @param {Object} params - 条件
   */
   async getShopListByClass(params = {}) {
+    if(!params.type_id || params.type_id === '0') delete params.type_id
     params.is_putaway = true
     return await this.ctx.model.Shop.find(params)
   }

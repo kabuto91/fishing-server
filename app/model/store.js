@@ -3,6 +3,7 @@
 module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
+  const { dateFormat } = app
 
   const StoreSchema = new Schema({
     store_name: {
@@ -26,8 +27,8 @@ module.exports = app => {
       type: String,
     },
     create_time: {
-      type: Date,
-      default: new Date(),
+      type: String,
+      default: dateFormat('YYYY-mm-dd HH:MM:SS', new Date()) ,
     },
   });
 

@@ -36,10 +36,9 @@ class UserController extends Controller {
   async getShoppingCartList() {
     let params = this.ctx.request.body
     let result = await this.ctx.service.user.getShoppingCartList(params)
-    let head = this.ctx.request.header.host
+    let head = `http://${this.ctx.request.header.host}` 
     console.log(result[0].shoppings[0].shop_twitter[0])
     result.forEach((item, index) => {
-      
       item.shoppings.length > 0 && (result[index].shoppings[0].shop_twitter[0] = `${head}${result[0].shoppings[0].shop_twitter[0]}`)
     })
     this.success(result)
@@ -49,6 +48,13 @@ class UserController extends Controller {
   async controlShoppingCart() {
     let params = this.ctx.request.body
     let result = await this.ctx.service.user.controlShoppingCart(params)
+    this.success(result)
+  }
+
+  // 添加用户收货地址
+  async addUserAddress() {
+    let params = this.ctx.request.body
+    let result = await this.ctx.service.user.addUserAddress(params)
     this.success(result)
   }
 }
