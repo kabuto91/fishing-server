@@ -25,6 +25,13 @@ class UserController extends Controller {
     this.success(result[0])
   }
 
+  // 重新加载用户信息
+  async reloadUserInfo() {
+    let params = this.ctx.request.body
+    let result = await this.ctx.service.user.reloadUserInfo(params)
+    this.success(result)
+  }
+
   // 添加购物车
   async addShoppingCart() {
     let params = this.ctx.request.body
@@ -39,7 +46,7 @@ class UserController extends Controller {
     let head = `http://${this.ctx.request.header.host}` 
     console.log(result[0].shoppings[0].shop_twitter[0])
     result.forEach((item, index) => {
-      item.shoppings.length > 0 && (result[index].shoppings[0].shop_twitter[0] = `${head}${result[0].shoppings[0].shop_twitter[0]}`)
+      item.shoppings.length > 0 && (result[index].shoppings[0].detail_imgs[0] = `${head}${result[0].shoppings[0].shop_twitter[0]}`)
     })
     this.success(result)
   }
@@ -55,6 +62,20 @@ class UserController extends Controller {
   async addUserAddress() {
     let params = this.ctx.request.body
     let result = await this.ctx.service.user.addUserAddress(params)
+    this.success(result)
+  }
+
+  // 修改用户收货地址
+  async editUserAddress() {
+    let params = this.ctx.request.body
+    let result = await this.ctx.service.user.editUserAddress(params)
+    this.success(result) 
+  }
+
+  // 删除用户收货地址
+  async deleteUserAddress() {
+    let params = this.ctx.request.body
+    let result = await this.ctx.service.user.deleteUserAddress(params)
     this.success(result)
   }
 }

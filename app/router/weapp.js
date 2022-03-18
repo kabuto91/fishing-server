@@ -17,10 +17,13 @@ module.exports = app => {
   //用户
   router.post('/weapp/user/login', controller.user.loginOrRegister)
   router.post('/weapp/user/info', controller.user.getUserInfo)
+  router.post('/weapp/user/reload', controller.user.reloadUserInfo)
   router.post('/weapp/shopping/add', controller.user.addShoppingCart)
   router.post('/weapp/shopping/list', controller.user.getShoppingCartList)
   router.post('/weapp/shopping/edit', controller.user.controlShoppingCart)
   router.post('/weapp/address/add', controller.user.addUserAddress)
+  router.post('/weapp/address/edit', controller.user.editUserAddress)
+  router.post('/weapp/address/delete', controller.user.deleteUserAddress)
 
   // 订单
   router.post('/weapp/order/add', controller.order.addOrder)

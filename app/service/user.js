@@ -64,6 +64,14 @@ class UserService extends Service {
   }
 
   /**
+   * 重新获取用户信息
+   * @param {Object} params - 条件
+  */
+  async reloadUserInfo(params = {}) {
+    return await this.ctx.model.User.updateOne({wx_openId: params.wx_openId}, {$set: {avatar_img: params.avatar_img, nickname: params.nickname}})
+  }
+
+  /**
    * 添加购物车 
    * @param {Object} params - 条件
   */
@@ -124,8 +132,44 @@ class UserService extends Service {
    * @param {Object} params - 条件
   */
   async addUserAddress(params = {}) {
-    params.is_default === !!(params.addressDetail.id === 0)
+    params.addressDetail.is_default = params.addressDetail?.is_default ?? false
+    if(params.addressDetail.is_default) {
+      let result = await this.cancelDefault(params.wx_openId)
+      console.log('result', result)
+    }
     return await this.ctx.model.User.updateOne({wx_openId: params.wx_openId}, {$push: {address: params.addressDetail}})
+  }
+
+  /**
+   * 修改用户收货地址
+   * @param {Object} params - 条件
+  */
+  async editUserAddress(params = {}) {
+    let postParam = {}
+    if(params.addressDetail.is_default) await this.cancelDefault(params.wx_openId)
+    for(let key in params.addressDetail) {
+      if(key === 'id') continue
+      postParam[`address.$.${key}`] = params.addressDetail[key]
+    }
+    console.log('postParams', postParam)
+    return await this.ctx.model.User.updateOne({wx_openId: params.wx_openId, 'address.id': params.addressDetail.id}, {$set: postParam})
+  }
+
+  /**
+   * 删除用户收货地址
+   * @param {Object} params - 删除
+  */
+  async deleteUserAddress(params = {}) {
+    console.log(params)
+    return await this.ctx.model.User.updateOne({wx_openId: params.wx_openId, 'address.id': params.id}, {$pull: {'address': {'id': params.id}}})
+  }
+
+  /**
+   * 如果新增或修改的地址为默认地址的话取消之前的默认地址
+   * @param {String} openId - 用户的openId
+  */
+  async cancelDefault(openId) {
+    return await this.ctx.model.User.updateOne({wx_openId: openId, 'address.is_default': true}, {$set: {'address.$.is_default': false}})
   }
 }
 
