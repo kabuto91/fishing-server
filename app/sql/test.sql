@@ -11,7 +11,7 @@
  Target Server Version : 40404
  File Encoding         : 65001
 
- Date: 15/03/2022 17:27:56
+ Date: 19/03/2022 17:33:56
 */
 
 
@@ -441,6 +441,41 @@ db.getCollection("order").insert([ {
     "order_number": "ER000000000005",
     __v: NumberInt("0")
 } ]);
+db.getCollection("order").insert([ {
+    _id: ObjectId("62328ef92c32994a9c7cee92"),
+    "order_detail": [
+        {
+            "shop_id": NumberInt("55"),
+            "shop_name": "术同法",
+            count: NumberInt("9"),
+            price: NumberInt("16"),
+            "shop_img": "http://dummyimage.com/400x400"
+        },
+        {
+            "shop_id": NumberInt("88"),
+            "shop_name": "状理深导",
+            count: NumberInt("23"),
+            price: NumberInt("72"),
+            "shop_img": "http://dummyimage.com/400x400"
+        },
+        {
+            "shop_id": NumberInt("95"),
+            "shop_name": "更西东就由",
+            count: NumberInt("60"),
+            price: NumberInt("18"),
+            "shop_img": "http://dummyimage.com/400x400"
+        }
+    ],
+    "order_time": "2022-03-17 09:28:52",
+    "order_state": "waitPay",
+    nickname: "朱娜",
+    address: "云南省泉州市谯城区",
+    phone: 18157826654,
+    price: NumberInt("33"),
+    "wx_openId": "oiWxj5aHR7MhMiujFnJX9QY6pjeU",
+    "order_number": "ER000000000006",
+    __v: NumberInt("0")
+} ]);
 
 // ----------------------------
 // Collection structure for power
@@ -456,49 +491,63 @@ db.getCollection("power").insert([ {
     "power_type": "basic",
     "power_name": "test",
     "power_img": "/static/images/controlIcon/about.png",
-    __v: NumberInt("0")
+    __v: NumberInt("0"),
+    image: "/static/images/controlIcon/about.png",
+    value: "test"
 } ]);
 db.getCollection("power").insert([ {
     _id: ObjectId("6219db73f926584ed8485747"),
     "power_type": "basic",
     "power_name": "收货地址",
     "power_img": "/static/images/controlIcon/about.png",
-    __v: NumberInt("0")
+    __v: NumberInt("0"),
+    image: "/static/images/controlIcon/about.png",
+    value: "收货地址"
 } ]);
 db.getCollection("power").insert([ {
     _id: ObjectId("6219dcb646634d47482453dc"),
     "power_type": "basic",
-    "power_name": "关于我们",
+    "power_name": "关于",
     "power_img": "/static/images/controlIcon/about.png",
-    __v: NumberInt("0")
+    __v: NumberInt("0"),
+    image: "/static/images/controlIcon/about.png",
+    value: "关于"
 } ]);
 db.getCollection("power").insert([ {
     _id: ObjectId("6219dcd5c26c565080fed91a"),
     "power_type": "basic",
     "power_name": "用户信息",
     "power_img": "/static/images/controlIcon/about.png",
-    __v: NumberInt("0")
+    __v: NumberInt("0"),
+    image: "/static/images/controlIcon/about.png",
+    value: "用户信息"
 } ]);
 db.getCollection("power").insert([ {
     _id: ObjectId("6219dcf7e0b86b3f3843af4d"),
     "power_type": "basic",
     "power_name": "设置",
     "power_img": "/static/images/controlIcon/about.png",
-    __v: NumberInt("0")
+    __v: NumberInt("0"),
+    image: "/static/images/controlIcon/about.png",
+    value: "设置"
 } ]);
 db.getCollection("power").insert([ {
     _id: ObjectId("6219dd032cd2b44bd05c9cf6"),
     "power_type": "basic",
     "power_name": "加入群聊",
     "power_img": "/static/images/controlIcon/about.png",
-    __v: NumberInt("0")
+    __v: NumberInt("0"),
+    image: "/static/images/controlIcon/about.png",
+    value: "加入群聊"
 } ]);
 db.getCollection("power").insert([ {
     _id: ObjectId("6219dd0eb816aa464874e03e"),
     "power_type": "basic",
     "power_name": "联系客服",
     "power_img": "/static/images/controlIcon/about.png",
-    __v: NumberInt("0")
+    __v: NumberInt("0"),
+    image: "/static/images/controlIcon/about.png",
+    value: "联系客服"
 } ]);
 
 // ----------------------------
@@ -538,7 +587,10 @@ db.getCollection("shop").insert([ {
     __v: NumberInt("0"),
     "sales_number": 0,
     "original_price": 20,
-    "is_discount": true
+    "is_discount": true,
+    specification: {
+        "收货地址": "13151135"
+    }
 } ]);
 db.getCollection("shop").insert([ {
     _id: ObjectId("621db2fefcef79537c22f81f"),
@@ -561,7 +613,10 @@ db.getCollection("shop").insert([ {
     __v: NumberInt("0"),
     "sales_number": 60,
     "original_price": 20,
-    "is_discount": true
+    "is_discount": true,
+    specification: {
+        "收货地址": "13151135"
+    }
 } ]);
 db.getCollection("shop").insert([ {
     _id: ObjectId("62298f145d05dd5998e5b21f"),
@@ -584,7 +639,10 @@ db.getCollection("shop").insert([ {
     __v: NumberInt("0"),
     "sales_number": 5,
     "original_price": 20,
-    "is_discount": false
+    "is_discount": false,
+    specification: {
+        "收货地址": "13151135"
+    }
 } ]);
 db.getCollection("shop").insert([ {
     _id: ObjectId("62298f9ee497a7535ce5a802"),
@@ -607,7 +665,10 @@ db.getCollection("shop").insert([ {
     "type_id": NumberInt("1"),
     __v: NumberInt("0"),
     "original_price": 20,
-    "is_discount": true
+    "is_discount": true,
+    specification: {
+        "收货地址": "13151135"
+    }
 } ]);
 db.getCollection("shop").insert([ {
     _id: ObjectId("622998e747d5235258b36158"),
@@ -630,7 +691,10 @@ db.getCollection("shop").insert([ {
     "type_id": NumberInt("1"),
     __v: NumberInt("0"),
     "original_price": 20,
-    "is_discount": false
+    "is_discount": false,
+    specification: {
+        "收货地址": "13151135"
+    }
 } ]);
 db.getCollection("shop").insert([ {
     _id: ObjectId("622a9d687bb6320c98e1d7f9"),
@@ -653,6 +717,113 @@ db.getCollection("shop").insert([ {
     "original_price": NumberInt("20"),
     inventory: NumberInt("500"),
     "type_id": NumberInt("1"),
+    __v: NumberInt("0"),
+    specification: {
+        "收货地址": "13151135"
+    }
+} ]);
+db.getCollection("shop").insert([ {
+    _id: ObjectId("623574970d50d059aca0746c"),
+    "shop_id": NumberInt("6"),
+    "is_discount": false,
+    "sales_number": NumberInt("0"),
+    "shop_twitter": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "detail_imgs": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "discount_type": [ ],
+    "is_putaway": true,
+    "shop_name": "商品2",
+    "shop_description": "商品描述",
+    price: NumberInt("20"),
+    "original_price": NumberInt("20"),
+    inventory: NumberInt("500"),
+    "type_id": NumberInt("2"),
+    __v: NumberInt("0"),
+    specification: {
+        "收货地址": "13151135"
+    }
+} ]);
+db.getCollection("shop").insert([ {
+    _id: ObjectId("623574b89ef22c5a0407cde9"),
+    "shop_id": NumberInt("7"),
+    "is_discount": true,
+    "sales_number": NumberInt("0"),
+    "shop_twitter": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "detail_imgs": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "discount_type": [ ],
+    "is_putaway": true,
+    "shop_name": "商品2",
+    "shop_description": "商品描述",
+    price: NumberInt("20"),
+    "original_price": NumberInt("20"),
+    inventory: NumberInt("500"),
+    "type_id": NumberInt("2"),
+    __v: NumberInt("0"),
+    specification: {
+        "收货地址": "13151135"
+    }
+} ]);
+db.getCollection("shop").insert([ {
+    _id: ObjectId("623575cfb2f3c55efc48e1d7"),
+    "shop_id": NumberInt("8"),
+    "is_discount": false,
+    "sales_number": NumberInt("0"),
+    "shop_twitter": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "detail_imgs": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "discount_type": [ ],
+    "is_putaway": true,
+    "shop_name": "商品2",
+    "shop_description": "商品描述123161646131",
+    price: NumberInt("20"),
+    "original_price": NumberInt("20"),
+    inventory: NumberInt("500"),
+    "type_id": NumberInt("2"),
+    __v: NumberInt("0"),
+    specification: {
+        "收货地址": "13151135"
+    }
+} ]);
+db.getCollection("shop").insert([ {
+    _id: ObjectId("623575f3817b91497833db61"),
+    "shop_id": NumberInt("9"),
+    "is_discount": true,
+    "sales_number": NumberInt("0"),
+    "shop_twitter": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "detail_imgs": [
+        "/static/images/controlIcon/about.png",
+        "/static/images/controlIcon/about.png"
+    ],
+    "discount_type": [ ],
+    "is_putaway": true,
+    "shop_name": "商品3",
+    "shop_description": "商品描述123161646131",
+    price: NumberInt("20"),
+    "original_price": NumberInt("20"),
+    inventory: NumberInt("500"),
+    "type_id": NumberInt("2"),
+    specification: {
+        "收货地址": "13151135"
+    },
     __v: NumberInt("0")
 } ]);
 
@@ -686,13 +857,6 @@ db.getCollection("shoppingCart").insert([ {
     count: NumberInt("19"),
     __v: 0
 } ]);
-db.getCollection("shoppingCart").insert([ {
-    _id: ObjectId("622ee94cd46769188cef12d9"),
-    count: NumberInt("14"),
-    "wx_openId": "oiWxj5aHR7MhMiujFnJX9QY6pjeU",
-    "shop_id": NumberInt("14"),
-    __v: NumberInt("0")
-} ]);
 
 // ----------------------------
 // Collection structure for store
@@ -709,7 +873,7 @@ db.getCollection("store").insert([ {
         "/static/images/controlIcon/about.png",
         "/static/images/controlIcon/about.png"
     ],
-    "create_time": ISODate("2022-03-10T01:56:22.284Z"),
+    "create_time": "2022-03-10 09:56:22",
     "store_name": "测试店铺",
     "store_description": "店铺描述",
     "store_img": "/static/images/controlIcon/about.png",
@@ -804,18 +968,40 @@ db.getCollection("user").insert([ {
     __v: NumberInt("0")
 } ]);
 db.getCollection("user").insert([ {
-    _id: ObjectId("622bf6dac1f9c12bf860a5c3"),
-    "create_time": ISODate("2022-03-12T01:26:18.167Z"),
-    "last_login_time": ISODate("2022-03-15T06:49:38.867Z"),
+    _id: ObjectId("623298b82214ff343c25c2cc"),
+    "create_time": "2022-03-17 10:09:31",
+    "last_login_time": "2022-03-18 14:33:51",
     "power_list": [
         "basic"
     ],
-    address: [ ],
-    "shopping_cart": [ ],
+    address: [
+        {
+            receiver: "1231",
+            phone: "              12312314",
+            "address_detail": "广东省广州市天河区天府路1号123",
+            id: NumberInt("2"),
+            province: "北京市",
+            city: "北京市",
+            area: "东城区",
+            isDefault: false,
+            "is_default": false
+        },
+        {
+            receiver: "金测定财报你定吧",
+            phone: 15015824190,
+            "address_detail": "广东省广州市黄埔区科学大道芯大厦B座",
+            id: NumberInt("9"),
+            province: "北京市",
+            city: "北京市",
+            area: "东城区",
+            "is_default": false
+        }
+    ],
     "wx_openId": "oiWxj5aHR7MhMiujFnJX9QY6pjeU",
-    nickname: "蔡洋",
-    "avatar_img": "/static/images/controlIcon/about.png",
-    __v: NumberInt("0")
+    nickname: "天道",
+    "avatar_img": "https://thirdwx.qlogo.cn/mmopen/vi_32/fFb2rHgNMia4YkrNdsuWV29pUIjrkLibXwGLXJDKEpnCOdlXzBVjhW2qXW0hfPaa2wM2vQNoyVxdkMGVJueqickCA/132",
+    __v: NumberInt("0"),
+    phone: 13611323115
 } ]);
 
 // ----------------------------

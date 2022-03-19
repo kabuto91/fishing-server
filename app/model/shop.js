@@ -55,6 +55,10 @@ module.exports = app => {
     is_putaway: {
       type: Boolean,
       default: true,
+    },
+    specification: {
+      type: Object,
+      default: {}
     }
   });
 
