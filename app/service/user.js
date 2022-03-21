@@ -87,6 +87,10 @@ class UserService extends Service {
    * @param {Object} params - 条件
   */
   async getShoppingCartList(params = {}) {
+    if(params.idList) {
+      params.shop_id = {$in: params.idList}
+      delete params.idList
+    }
     return await this.ctx.model.ShoppingCart.aggregate([
       {
         $match: params

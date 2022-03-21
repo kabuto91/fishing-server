@@ -44,6 +44,7 @@ class OrderService extends Service {
 
   /**
    * 给订单付款
+   * @param {Object} params - 条件
   */
   async payOrder(params = {}) {
     return await this.ctx.model.Order.updateOne({order_number: params.order_number}, {order_state: 'waitSend'})
