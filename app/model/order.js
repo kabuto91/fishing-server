@@ -29,7 +29,6 @@ module.exports = app => {
     },
     order_time: {
       type: String,
-      default: dateFormat('YYYY-mm-dd HH:MM:SS', new Date()) ,
     },
     price: {
       type: Number,

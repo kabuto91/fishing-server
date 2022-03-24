@@ -6,8 +6,13 @@ class OrderController extends Controller {
   // 添加订单
   async addOrder() {
     let params = this.ctx.request.body
-    let result = await this.ctx.service.order.addOrder(params)
-    this.success(result)
+    try {
+      let result = await this.ctx.service.order.addOrder(params)
+      this.success(result)
+    } catch (error) {
+      this.fail(400, error)
+    }
+
   }
 
   // 根据分类获取订单列表
