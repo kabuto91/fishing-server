@@ -3,6 +3,7 @@
 const Controller = require('../core/base_controller');
 
 class StoreController extends Controller {
+  
   // 获取店铺信息
   async getStoreDetail() {
     let result = await this.ctx.service.store.getStoreDetail()
@@ -14,6 +15,13 @@ class StoreController extends Controller {
         result.swiper_imgs[index] = item ? `${head}${item}` : ''
       })
     }
+    this.success(result)
+  }
+
+  // 修改店铺信息
+  async editStore() {
+    let params = this.ctx.request.body
+    let result = await this.ctx.service.store.editStore(params)
     this.success(result)
   }
 }

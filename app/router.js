@@ -6,4 +6,5 @@
 module.exports = app => {
   
   require('./router/weapp')(app);
+  require('./router/manager')(app);
 };
