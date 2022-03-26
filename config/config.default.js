@@ -42,7 +42,7 @@ module.exports = appInfo => {
 
   config.static = {
     // 默认目录，静态化访问前缀
-    prefix: '/static',
+    prefix: '/public',
     // 静态文件存储目录
     dir: path.join(appInfo.baseDir, 'app/public'),
     // 如果当前访问的静态资源没有缓存，则缓存静态文件，和'preload'配合使用
@@ -56,6 +56,7 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
+    uploadImgDir: 'app/public/images'
   };
 
   return {
