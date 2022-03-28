@@ -82,6 +82,7 @@ class UserController extends Controller {
     let result = await this.ctx.service.user.deleteUserAddress(params)
     this.success(result)
   }
+
 }
 
 module.exports = UserController

@@ -30,4 +30,5 @@ module.exports = app => {
   router.post('/weapp/order/list', controller.order.getOrderByClass)
   router.get('/weapp/order/detail', controller.order.getOrderDetail)
   router.post('/weapp/order/pay', controller.order.payOrder)
+
 }

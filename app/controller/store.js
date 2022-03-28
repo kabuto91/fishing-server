@@ -22,7 +22,7 @@ class StoreController extends Controller {
   async editStore() {
     let params = this.ctx.request.body
     let result = await this.ctx.service.store.editStore(params)
-    this.success(result)
+    this.success(params)
   }
 }
 

@@ -20,6 +20,11 @@ module.exports = appInfo => {
   // 中间件（错误处理）
   config.middleware = ['errorHandler'];
 
+  // 开启file模式，可以上传文件
+  config.multipart = {
+    mode: 'file'
+  }
+
   // 设置运行路径端口
   config.cluster = {
     listen: {
@@ -42,7 +47,7 @@ module.exports = appInfo => {
 
   config.static = {
     // 默认目录，静态化访问前缀
-    prefix: '/public',
+    prefix: '/app/public',
     // 静态文件存储目录
     dir: path.join(appInfo.baseDir, 'app/public'),
     // 如果当前访问的静态资源没有缓存，则缓存静态文件，和'preload'配合使用
