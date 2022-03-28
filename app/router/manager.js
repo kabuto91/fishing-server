@@ -3,6 +3,7 @@ module.exports = app => {
 
   // 上传
   router.post('/manager/upload/image', controller.upload.uploadImg)
+  router.post('/manager/upload/delete', controller.upload.deleteUploadImg)
 
   // 分类
   router.get('/manager/classify/list', controller.class.getClassAllList)

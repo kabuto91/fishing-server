@@ -46,6 +46,27 @@ class UploadController extends Controller {
       ctx.cleanupRequestFiles()
     }
   }
+
+  async deleteUploadImg() {
+    
+    try {
+      let { url } = this.ctx.request.body
+      
+      url = url.replace(/\//g, '\\')
+      console.log(url)
+      let tempPath = __dirname.split('\\')
+      tempPath.splice(-2)
+      tempPath = tempPath.join('\\') + url
+      console.log(tempPath)
+      fs.unlinkSync(tempPath)
+      this.success(tempPath)
+    } catch (error) {
+      this.fail(error)
+    } finally {
+      // 清除临时文件
+      this.ctx.cleanupRequestFiles()
+    }
+  }
   
 }
 
