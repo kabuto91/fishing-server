@@ -34,9 +34,14 @@ class ClassService extends Service {
    * @param {Object} params - 条件
   */
   async editClassify(params = {}) {
-    let editParams = {class_name: params.class_name}
-    if(params.hasOwnProperty('is_show')) editParams.is_show = params.is_show
-    return await this.ctx.model.Class.updateOne({class_id: params.class_id}, editParams)
+    let arr = params.classList
+    arr.forEach(async (item) => {
+      let editParams = {class_name: item.class_name}
+      if(item.hasOwnProperty('is_show')) editParams.is_show = item.is_show
+      await this.ctx.model.Class.updateOne({class_id: params.class_id}, editParams)
+    })
+    
+    return new Promise(resolve => resolve('编辑成功'))
   }
 
   /**
