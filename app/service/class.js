@@ -16,7 +16,7 @@ class ClassService extends Service {
    * 获取分类所有列表
   */
   async getClassAllList() {
-    return await this.ctx.model.Class.find()
+    return await this.ctx.model.Class.find().skip(1)
   }
 
   /**
