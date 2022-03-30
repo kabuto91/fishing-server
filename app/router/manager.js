@@ -13,4 +13,7 @@ module.exports = app => {
 
   // 店铺
   router.post('/manager/store/edit', controller.store.editStore)
+
+  // 商品
+  router.post('/manager/shop/delete', controller.shop.deleteShop)
 }

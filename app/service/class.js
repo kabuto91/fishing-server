@@ -38,7 +38,7 @@ class ClassService extends Service {
     arr.forEach(async (item) => {
       let editParams = {class_name: item.class_name}
       if(item.hasOwnProperty('is_show')) editParams.is_show = item.is_show
-      await this.ctx.model.Class.updateOne({class_id: params.class_id}, editParams)
+      await this.ctx.model.Class.updateOne({class_id: item.class_id}, editParams)
     })
     
     return new Promise(resolve => resolve('编辑成功'))

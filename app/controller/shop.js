@@ -26,7 +26,6 @@ class ShopController extends Controller {
   async getShopListBySales() {
     const { ctx } = this
     let params = ctx.query
-    console.log('params', params)
     let result = await ctx.service.shop.getShopListBySales(params)
     await this.addShopImgHead(result)
     this.success(result)
@@ -44,6 +43,13 @@ class ShopController extends Controller {
     let params = this.ctx.query
     let result = await this.ctx.service.shop.getShopDetail(params)
     await this.addShopImgHead(result)
+    this.success(result)
+  }
+
+  // 删除商品
+  async deleteShop() {
+    let params = this.ctx.request.body
+    let result = await this.ctx.service.shop.deleteShop(params)
     this.success(result)
   }
 }

@@ -50,6 +50,14 @@ class ShopService extends Service {
   async getShopDetail(params = {}) {
     return await this.ctx.model.Shop.findOne({shop_id: params.shop_id})
   }
+
+  /**
+   * 删除商品
+   * @param {Object} params - 条件
+  */
+  async deleteShop(params = {}) {
+    return await this.ctx.model.Shop.remove({shop_id: params.shop_id})
+  }
 }
 
 module.exports = ShopService
