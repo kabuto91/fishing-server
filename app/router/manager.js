@@ -16,4 +16,5 @@ module.exports = app => {
 
   // 商品
   router.post('/manager/shop/delete', controller.shop.deleteShop)
+  router.post('/manager/shop/add', controller.shop.addShop)
 }

@@ -52,6 +52,14 @@ class ShopController extends Controller {
     let result = await this.ctx.service.shop.deleteShop(params)
     this.success(result)
   }
+
+  // 新增商品
+  async addShop() {
+    let params = this.ctx.request.body
+    console.log(params)
+    let result = await this.ctx.service.shop.addShop(params)
+    this.success(result)
+  }
 }
 
 module.exports = ShopController

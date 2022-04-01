@@ -58,6 +58,23 @@ class ShopService extends Service {
   async deleteShop(params = {}) {
     return await this.ctx.model.Shop.remove({shop_id: params.shop_id})
   }
+
+  /**
+   * 新增商品
+   * @param {Object} params - 条件
+  */
+  async addShop(params = {}) {
+    let result = await this.getLastShop()
+    params.shop_id = result ? result.shop_id + 1 : 0
+    console.log(params)
+    return await this.ctx.model.Shop.create(params)
+  }
+
+  // 获取商品列表的最后一个shop_id
+  async getLastShop() {
+    let res = await this.ctx.model.Shop.findOne().sort({shop_id: -1})
+    return res
+  }
 }
 
 module.exports = ShopService
