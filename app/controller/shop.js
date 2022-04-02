@@ -13,6 +13,15 @@ class ShopController extends Controller {
     this.success(result)
   }
 
+  // 根据分类ID获取所有商品列表
+  async getAllShopListByClass() {
+    const { ctx } = this
+    let params = ctx.query
+    let result = await ctx.service.shop.getAllShopListByClass(params)
+    await this.addShopImgHead(result)
+    this.success(result)
+  }
+
   // 搜索商品列表
   async getSearchShopList() {
     const { ctx } = this
@@ -52,6 +61,7 @@ class ShopController extends Controller {
     let result = await this.ctx.service.shop.deleteShop(params)
     this.success(result)
   }
+  
 
   // 新增商品
   async addShop() {

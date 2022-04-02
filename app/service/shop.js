@@ -70,6 +70,15 @@ class ShopService extends Service {
     return await this.ctx.model.Shop.create(params)
   }
 
+  /**
+   * 根据分类ID获取所有商品列表
+   * @param {Object} params - 条件
+  */
+  async getAllShopListByClass(params = {}) {
+    if(!params.type_id || params.type_id === '0') delete params.type_id
+    return await this.ctx.model.Shop.find(params)
+  }
+
   // 获取商品列表的最后一个shop_id
   async getLastShop() {
     let res = await this.ctx.model.Shop.findOne().sort({shop_id: -1})

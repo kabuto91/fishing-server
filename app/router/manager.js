@@ -15,6 +15,7 @@ module.exports = app => {
   router.post('/manager/store/edit', controller.store.editStore)
 
   // 商品
+  router.get('/manager/shop/list', controller.shop.getAllShopListByClass)
   router.post('/manager/shop/delete', controller.shop.deleteShop)
   router.post('/manager/shop/add', controller.shop.addShop)
 }
