@@ -11,7 +11,7 @@
  Target Server Version : 40404
  File Encoding         : 65001
 
- Date: 26/03/2022 16:06:12
+ Date: 03/04/2022 17:29:01
 */
 
 
@@ -212,6 +212,34 @@ db.getCollection("class").insert([ {
     "class_id": NumberInt("0"),
     "is_show": true,
     "class_name": "全部",
+    __v: NumberInt("0")
+} ]);
+db.getCollection("class").insert([ {
+    _id: ObjectId("6243a809cba4972a40607e51"),
+    "class_id": NumberInt("3"),
+    "is_show": true,
+    "class_name": "份哦才能",
+    __v: NumberInt("0")
+} ]);
+db.getCollection("class").insert([ {
+    _id: ObjectId("6243b7c7cba4972a40607e70"),
+    "class_id": NumberInt("4"),
+    "is_show": true,
+    "class_name": "369",
+    __v: NumberInt("0")
+} ]);
+db.getCollection("class").insert([ {
+    _id: ObjectId("6247ac4299f5bd4e34a60a29"),
+    "class_id": NumberInt("5"),
+    "is_show": true,
+    "class_name": "151312",
+    __v: NumberInt("0")
+} ]);
+db.getCollection("class").insert([ {
+    _id: ObjectId("624955d4ad03452ea426e1c3"),
+    "class_id": NumberInt("6"),
+    "is_show": true,
+    "class_name": "小俊炎",
     __v: NumberInt("0")
 } ]);
 
@@ -748,110 +776,6 @@ db.getCollection("shop").createIndex({
 // ----------------------------
 // Documents of shop
 // ----------------------------
-db.getCollection("shop").insert([ {
-    _id: ObjectId("623574970d50d059aca0746c"),
-    "shop_id": NumberInt("6"),
-    "is_discount": false,
-    "sales_number": NumberInt("0"),
-    "shop_twitter": [
-        "/static/images/controlIcon/about.png",
-        "/static/images/controlIcon/about.png"
-    ],
-    "detail_imgs": [
-        "/static/images/controlIcon/about.png",
-        "/static/images/controlIcon/about.png"
-    ],
-    "discount_type": [ ],
-    "is_putaway": true,
-    "shop_name": "商品2",
-    "shop_description": "商品描述",
-    price: NumberInt("20"),
-    "original_price": NumberInt("20"),
-    inventory: NumberInt("500"),
-    "type_id": NumberInt("2"),
-    __v: NumberInt("0"),
-    specification: {
-        "收货地址": "13151135"
-    }
-} ]);
-db.getCollection("shop").insert([ {
-    _id: ObjectId("623574b89ef22c5a0407cde9"),
-    "shop_id": NumberInt("7"),
-    "is_discount": true,
-    "sales_number": NumberInt("0"),
-    "shop_twitter": [
-        "/static/images/controlIcon/about.png",
-        "/static/images/controlIcon/about.png"
-    ],
-    "detail_imgs": [
-        "/static/images/controlIcon/about.png",
-        "/static/images/controlIcon/about.png"
-    ],
-    "discount_type": [ ],
-    "is_putaway": true,
-    "shop_name": "商品2",
-    "shop_description": "商品描述",
-    price: NumberInt("20"),
-    "original_price": NumberInt("20"),
-    inventory: NumberInt("498"),
-    "type_id": NumberInt("2"),
-    __v: NumberInt("0"),
-    specification: {
-        "收货地址": "13151135"
-    }
-} ]);
-db.getCollection("shop").insert([ {
-    _id: ObjectId("623575cfb2f3c55efc48e1d7"),
-    "shop_id": NumberInt("8"),
-    "is_discount": false,
-    "sales_number": NumberInt("0"),
-    "shop_twitter": [
-        "/static/images/controlIcon/about.png",
-        "/static/images/controlIcon/about.png"
-    ],
-    "detail_imgs": [
-        "/static/images/controlIcon/about.png",
-        "/static/images/controlIcon/about.png"
-    ],
-    "discount_type": [ ],
-    "is_putaway": true,
-    "shop_name": "商品2",
-    "shop_description": "商品描述123161646131",
-    price: NumberInt("20"),
-    "original_price": NumberInt("20"),
-    inventory: NumberInt("248"),
-    "type_id": NumberInt("2"),
-    __v: NumberInt("0"),
-    specification: {
-        "收货地址": "13151135"
-    }
-} ]);
-db.getCollection("shop").insert([ {
-    _id: ObjectId("623575f3817b91497833db61"),
-    "shop_id": NumberInt("9"),
-    "is_discount": true,
-    "sales_number": NumberInt("0"),
-    "shop_twitter": [
-        "/static/images/controlIcon/about.png",
-        "/static/images/controlIcon/about.png"
-    ],
-    "detail_imgs": [
-        "/static/images/controlIcon/about.png",
-        "/static/images/controlIcon/about.png"
-    ],
-    "discount_type": [ ],
-    "is_putaway": true,
-    "shop_name": "商品3",
-    "shop_description": "商品描述123161646131",
-    price: NumberInt("20"),
-    "original_price": NumberInt("20"),
-    inventory: NumberInt("498"),
-    "type_id": NumberInt("2"),
-    specification: {
-        "收货地址": "13151135"
-    },
-    __v: NumberInt("0")
-} ]);
 
 // ----------------------------
 // Collection structure for shoppingCart
@@ -877,10 +801,10 @@ db.getCollection("shoppingCart").insert([ {
     __v: NumberInt("0")
 } ]);
 db.getCollection("shoppingCart").insert([ {
-    _id: ObjectId("623d17769e01d24cd0ff06bd"),
-    count: NumberInt("1"),
+    _id: ObjectId("62493bcd3d2a70078ce04bb5"),
+    count: NumberInt("11"),
     "wx_openId": "oiWxj5aHR7MhMiujFnJX9QY6pjeU",
-    "shop_id": NumberInt("6"),
+    "shop_id": NumberInt("3"),
     __v: NumberInt("0")
 } ]);
 
@@ -896,15 +820,16 @@ db.createCollection("store");
 db.getCollection("store").insert([ {
     _id: ObjectId("62295e7e76cfdc12f45c1dce"),
     "swiper_imgs": [
-        "/static/images/controlIcon/about.png",
-        "/static/images/controlIcon/about.png"
+        "/app/public/images/store/1648536372670.png",
+        "/app/public/images/store/1648536377765.png",
+        "/app/public/images/store/1648618085735.gif"
     ],
     "create_time": "2022-03-10 09:56:22",
-    "store_name": "123456",
-    "store_description": "店铺描述",
-    "store_img": "/public/images/controlIcon/about.png",
-    "store_address": "测试地址",
-    notice: "店铺公告栏",
+    "store_name": "测试店铺123",
+    "store_description": "店铺描述123",
+    "store_img": "/app/public/images/store/1648536366619.jpg",
+    "store_address": "广东省广州市天河区天府路1号",
+    notice: "店铺公告栏123456789",
     __v: NumberInt("0")
 } ]);
 
@@ -996,7 +921,7 @@ db.getCollection("user").insert([ {
 db.getCollection("user").insert([ {
     _id: ObjectId("623298b82214ff343c25c2cc"),
     "create_time": "2022-03-17 10:09:31",
-    "last_login_time": "2022-03-24 15:02:49",
+    "last_login_time": "2022-04-03 16:11:06",
     "power_list": [
         "basic",
         "manager"
@@ -1010,7 +935,7 @@ db.getCollection("user").insert([ {
             province: "广东省",
             city: "佛山市",
             area: "三水区",
-            "is_default": false
+            "is_default": true
         },
         {
             receiver: "123",
