@@ -26,6 +26,7 @@ class ClassController extends Controller {
   async deleteClassify() {
     let params = this.ctx.request.body
     let result = await this.ctx.service.class.deleteClassify(params.class_id)
+    console.log(result)
     this.success(result)
   }
 

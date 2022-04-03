@@ -52,6 +52,20 @@ class ShopController extends Controller {
     let params = this.ctx.query
     let result = await this.ctx.service.shop.getShopDetail(params)
     await this.addShopImgHead(result)
+    result = {
+      shop_id: result?.shop_id,
+      shop_name: result.shop_name,
+      shop_description: result.shop_description,
+      price: result.price,
+      original_price: result.original_price,
+      is_discount: result.is_discount,
+      is_putaway: result.is_putaway,
+      inventory: result.inventory,
+      type_id: result.type_id,
+      shop_twitter: result.shop_twitter,
+      detail_imgs: result.detail_imgs,
+      specification: result.specification,
+    }
     this.success(result)
   }
 
@@ -59,6 +73,7 @@ class ShopController extends Controller {
   async deleteShop() {
     let params = this.ctx.request.body
     let result = await this.ctx.service.shop.deleteShop(params)
+    console.log(result)
     this.success(result)
   }
   
@@ -68,6 +83,14 @@ class ShopController extends Controller {
     let params = this.ctx.request.body
     console.log(params)
     let result = await this.ctx.service.shop.addShop(params)
+    this.success(result)
+  }
+
+  // 修改商品
+  async editShop() {
+    let params = this.ctx.request.body
+    console.log(params)
+    let result = await this.ctx.service.shop.editShop(params)
     this.success(result)
   }
 }

@@ -56,7 +56,7 @@ class ShopService extends Service {
    * @param {Object} params - 条件
   */
   async deleteShop(params = {}) {
-    return await this.ctx.model.Shop.remove({shop_id: params.shop_id})
+    return await this.ctx.model.Shop.findOneAndRemove({shop_id: params.shop_id})
   }
 
   /**
@@ -68,6 +68,15 @@ class ShopService extends Service {
     params.shop_id = result ? result.shop_id + 1 : 0
     console.log(params)
     return await this.ctx.model.Shop.create(params)
+  }
+
+  /**
+   * 修改商品
+   * @param {Object} params - 条件
+  */
+  async editShop(params = {}) {
+    console.log(params)
+    return await this.ctx.model.Shop.updateOne({shop_id: params.shop_id}, params)
   }
 
   /**

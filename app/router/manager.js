@@ -18,4 +18,5 @@ module.exports = app => {
   router.get('/manager/shop/list', controller.shop.getAllShopListByClass)
   router.post('/manager/shop/delete', controller.shop.deleteShop)
   router.post('/manager/shop/add', controller.shop.addShop)
+  router.post('/manager/shop/edit', controller.shop.editShop)
 }
