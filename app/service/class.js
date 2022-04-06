@@ -50,8 +50,8 @@ class ClassService extends Service {
   */
   async deleteClassify(id) {
     try {
-      await this.ctx.model.Shop.remove({type_id: id})
-      return await this.ctx.model.Class.remove({class_id: id})
+      // await this.ctx.model.Shop.remove({type_id: id})
+      return await this.ctx.model.Class.findOneAndRemove({class_id: id})
     } catch (error) {
       return new Promise((resolve, reject) => {reject(error)})
     }

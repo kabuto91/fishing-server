@@ -48,7 +48,7 @@ class UploadController extends Controller {
         item = item.replace(/\//g, '\\')
         fs.unlinkSync(tempPath + item)
       })
-      this.success(tempPath)
+      this.success('删除成功')
     } catch (error) {
       this.fail(error)
     } finally {

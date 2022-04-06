@@ -65,6 +65,16 @@ class OrderService extends Service {
   }
 
   /**
+   * 根据分类获取所有订单列表
+   * @param {Object} params - 条件
+  */
+   async getAllOrderByClass(params = {}) {
+    let findParams = {}
+    params.order_state && (findParams.order_state = params.order_state)
+    return await this.ctx.model.Order.find(findParams, {wx_openId: 0})
+  }
+
+  /**
    * 获取订单详情
    * @param {Object} params - 条件
   */
@@ -76,8 +86,16 @@ class OrderService extends Service {
    * 给订单付款
    * @param {Object} params - 条件
   */
-  async payOrder(params = {}) {
-    return await this.ctx.model.Order.updateOne({order_number: params.order_number}, {order_state: 'waitSend'})
+  async changeOrderStatus(params = {}) {
+    let stateObj = {
+      'waitPay': 'waitSend',
+      'waitSend': 'waitReceive',
+      'waitReceive': 'waitEvaluate',
+    }
+    return await this.ctx.model.Order.updateOne(
+      {order_number: params.order_number}, 
+      {order_state: stateObj[params.order_state]}
+    )
   }
 }
 

@@ -19,4 +19,7 @@ module.exports = app => {
   router.post('/manager/shop/delete', controller.shop.deleteShop)
   router.post('/manager/shop/add', controller.shop.addShop)
   router.post('/manager/shop/edit', controller.shop.editShop)
+  
+  // 订单
+  router.get('/manager/order/list', controller.order.getAllOrderByClass)
 }
