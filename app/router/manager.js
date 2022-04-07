@@ -13,6 +13,7 @@ module.exports = app => {
 
   // 店铺
   router.post('/manager/store/edit', controller.store.editStore)
+  router.post('/manager/store/login', controller.store.storeLogin)
 
   // 商品
   router.get('/manager/shop/list', controller.shop.getAllShopListByClass)

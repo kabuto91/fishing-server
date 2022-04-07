@@ -17,6 +17,14 @@ class StoreService extends Service {
   async editStore(params = {}) {
     return await this.ctx.model.Store.updateOne({}, params)
   }
+
+  /**
+   * 登录店铺
+   * @param {String} password - 店铺密码
+  */
+  async storeLogin(password = '') {
+    return await this.ctx.model.Store.findOne({store_password: password})
+  }
 }
 
 module.exports = StoreService

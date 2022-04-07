@@ -1,6 +1,7 @@
 'use strict';
 
 const Controller = require('../core/base_controller');
+const crypto = require('crypto')
 
 class StoreController extends Controller {
   
@@ -23,6 +24,21 @@ class StoreController extends Controller {
     let params = this.ctx.request.body
     let result = await this.ctx.service.store.editStore(params)
     this.success(params)
+  }
+
+  // 店铺登录
+  async storeLogin() {
+    let params = this.ctx.request.body
+    const md5 = crypto.createHash('md5').update(params.password).digest('hex')
+    console.log(md5)
+    let result = await this.ctx.service.store.storeLogin(md5)
+    console.log(result)
+    if(result) {
+      this.success('登录成功')
+    } else {
+      this.fail(500, '登录失败，密码错误')
+    }
+    
   }
 }
 
